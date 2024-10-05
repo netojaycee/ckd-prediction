@@ -1,66 +1,41 @@
 "use client";
 import React, { useState } from "react";
 
+
+// Define an interface for the form data structure
+interface CKDFormData {
+  age?: number;
+  bp?: number;
+  sg?: number;
+  al?: number | string;
+  su?: number | string;
+  rbc?: "normal" | "abnormal";
+  pc?: "normal" | "abnormal";
+  pcc?: "present" | "notpresent";
+  ba?: "present" | "notpresent";
+  bgr?: "present" | "notpresent";
+  bu?: number;
+  sc?: number;
+  sod?: number;
+  pot?: number;
+  hemo?: number;
+  pcv?: number;
+  wc?: number;
+  rc?: number;
+  htn?: "yes" | "no";
+  dm?: "yes" | "no";
+  cad?: "yes" | "no";
+  appet?: "poor" | "good";
+  pe?: "yes" | "no";
+  ane?: "yes" | "no";
+}
+
 const CKDForm = () => {
   const [predictions, setPredictions] = useState<string | null>("");
-  // const [formData, setFormData] = useState({
-  //   age: 48.0,
-  //   bp: 80.0,
-  //   sg: 1.02,
-  //   al: 1.0,
-  //   su: 0.0,
-  //   rbc: "normal",
-  //   pc: "normal",
-  //   pcc: "notpresent",
-  //   ba: "notpresent",
-  //   bgr: 121.0,
-  //   bu: 36.0,
-  //   sc: 1.2,
-  //   sod: 111.0,
-  //   pot: 2.5,
-  //   hemo: 15.4,
-  //   pcv: 44,
-  //   wc: 7800,
-  //   rc: 5.2,
-  //   htn: "yes",
-  //   dm: "yes",
-  //   cad: "no",
-  //   appet: "good",
-  //   pe: "no",
-  //   ane: "no",
-  // });
-
-  // const [formData, setFormData] = useState({
-  //   age: 40.0,
-  //   bp: 80.0,
-  //   sg: 1.025,
-  //   al: 0.0,
-  //   su: 0.0,
-  //   rbc: "normal",
-  //   pc: "normal",
-  //   pcc: "notpresent",
-  //   ba: "notpresent",
-  //   bgr: 140.0,
-  //   bu: 10.0,
-  //   sc: 1.2,
-  //   sod: 135.0,
-  //   pot: 5.0,
-  //   hemo: 15.0,
-  //   pcv: 48,
-  //   wc: 10400,
-  //   rc: 4.5,
-  //   htn: "no",
-  //   dm: "no",
-  //   cad: "no",
-  //   appet: "good",
-  //   pe: "no",
-  //   ane: "no",
-  // });
-
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState<CKDFormData>({});
 
   // Function to map the formData to the desired format
-  const mapData = (data: any) => {
+  const mapData = (data: CKDFormData) => {
     return [
       data.age, // age
       data.bp, // bp
@@ -451,7 +426,7 @@ const CKDForm = () => {
             </div>
             <button
               type="submit"
-              onClick={setPredictions("0")}
+              // onClick={setPredictions("0")}
               className="w-full bg-green-500 text-white p-2 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400"
             >
               Submit
