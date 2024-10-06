@@ -82,7 +82,8 @@ const CKDForm = () => {
     console.log(transformedData);
     try {
       // const res = await fetch("http://localhost:5000/predict", {
-      const res = await fetch("http://35.175.142.108/predict", {
+
+      const res = await fetch("http://ckd-pred.duckdns.org/api/predict", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
